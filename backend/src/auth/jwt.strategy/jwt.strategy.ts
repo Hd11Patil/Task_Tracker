@@ -11,7 +11,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       secretOrKey: 'task-tracker-secret-key',
     });
   }
-      //for valid payload
+      //foR valid payload
   async validate(payload: any) {
     return {
       id: payload.userId,

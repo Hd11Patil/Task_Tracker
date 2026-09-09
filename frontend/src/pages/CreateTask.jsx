@@ -44,7 +44,7 @@ function CreateTask() {
     }
   };
 
-  // handle input changes
+  // handle Input changes
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -52,7 +52,7 @@ function CreateTask() {
     });
   };
 
-  // create task
+  // Create a Task
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -84,7 +84,7 @@ function CreateTask() {
 
       setError(
         err.response?.data?.message ||
-          'Failed to create task',
+          'Fail to create task',
       );
     } finally {
       setLoading(false);

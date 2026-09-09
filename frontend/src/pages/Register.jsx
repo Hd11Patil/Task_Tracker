@@ -33,7 +33,7 @@ function Register() {
 
       await api.post("/auth/register", formData);
 
-      alert("Registration Successful");
+      alert("Registration Successfull");
 
       navigate("/login");
     } catch (err) {

@@ -16,7 +16,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  //register user
+  //register The user
   async register(registerDto: RegisterDto) {
     const existingUser = await this.usersService.findByEmail(registerDto.email);
 
@@ -24,7 +24,7 @@ export class AuthService {
       throw new BadRequestException('Email already exists');
     }
 
-    //hash the user password 
+    //hash the user passcode
     const hashedPassword = await bcrypt.hash(
         registerDto.password,
         10,
@@ -33,7 +33,7 @@ export class AuthService {
     return this.usersService.createUser({ ...registerDto, password: hashedPassword });
   }
 
-  //login user
+  //login User
   async login(loginDto: LoginDto){
     const user = await this.usersService.findByEmail(loginDto.email,);
 
@@ -41,7 +41,7 @@ export class AuthService {
         throw new UnauthorizedException('Invalid Email or Password');
     }
      
-    //compare the password with hash pass
+    //compare the Password with hash pass
     const isPasswordValid = await bcrypt.compare(
         loginDto.password,
         user.password,

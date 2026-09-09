@@ -28,13 +28,13 @@ function Dashboard() {
 
       setTasks(response.data);
     } catch (error) {
-      console.error("Error fetching tasks:", error);
+      console.error("Error fetching task:", error);
     } finally {
       setLoading(false);
     }
   };
 
-  // update task status
+  // Update task Status
   const updateTaskStatus = async (taskId, status) => {
     try {
       const token = localStorage.getItem("token");
@@ -55,17 +55,17 @@ function Dashboard() {
     } catch (error) {
       console.error(error);
 
-      alert(error.response?.data?.message || "Failed to update status");
+      alert(error.response?.data?.message || "Fail to update status");
     }
   };
 
-  // filter tasks
+  // Filter task
   const filteredTasks =
     statusFilter === "All"
       ? tasks
       : tasks.filter((task) => task.status === statusFilter);
 
-  // logout
+  // logout --
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -73,7 +73,7 @@ function Dashboard() {
     navigate("/login");
   };
 
-  // priority badge
+  // priority badge --
   const getPriorityClass = (priority) => {
     switch (priority) {
       case "High":
@@ -87,7 +87,7 @@ function Dashboard() {
     }
   };
 
-  // status badge
+  // status Badge 
   const getStatusClass = (status) => {
     switch (status) {
       case "Pending":

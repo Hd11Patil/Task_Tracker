@@ -37,8 +37,8 @@ export class Task {
   dueDate: Date;
 
   @Column()
-  assignedTo: number; // user id
+  assignedTo: number; // User-id
 
   @Column()
-  createdBy: number; // manager id
+  createdBy: number; // managerId
 }
